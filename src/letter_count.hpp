@@ -5,7 +5,7 @@ using namespace std;
 
 constexpr int N_CHARS = 26;
 
-inline int char_to_index(char c) {
+int char_to_index(char c) {
     return c - 'A';
 }
 
@@ -14,7 +14,7 @@ char index_to_char(int index) {
 }
 
 void count(const string& line, int counts[]) {
-    for (int i = 0; i < line.length(); i++) {
+    for (size_t i = 0; i < line.length(); i++) {
         char c = line[i];
         if (c >= 'A' && c <= 'Z') {
             int index = char_to_index(c);
@@ -27,8 +27,8 @@ void count(const string& line, int counts[]) {
     }
 }
 
-void print_counts(const int counts[]) {
-    for (int i = 0; i < N_CHARS; ++i) {
+void print_counts(const int counts[], int size = N_CHARS) {
+    for (int i = 0; i < size; ++i) {
         cout << index_to_char(i) << " " << counts[i] << endl;
     }
 }

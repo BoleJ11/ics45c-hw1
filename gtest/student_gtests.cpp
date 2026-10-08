@@ -73,3 +73,21 @@ TEST(StackTests, FullStackBecomesFull) {
     }
     EXPECT_TRUE(stk.isFull());
 }
+
+TEST(StackTests, MultiplePushPopSequence) {
+    Stack stk;
+    stk.push('1');
+    stk.push('2');
+    stk.push('3');
+    EXPECT_EQ(stk.top(), '3');
+    stk.pop();
+    EXPECT_EQ(stk.top(), '2');
+    stk.push('4');
+    EXPECT_EQ(stk.top(), '4');
+    stk.pop();
+    EXPECT_EQ(stk.top(), '2');
+    stk.pop();
+    EXPECT_EQ(stk.top(), '1');
+    stk.pop();
+    EXPECT_TRUE(stk.isEmpty());
+}
