@@ -36,6 +36,26 @@ TEST(StackTests, PopRemovesTopElement) {
     EXPECT_TRUE(stk.isEmpty());
 }
 
+TEST(StackTests, PushAllAddsCharactersInOrder) {
+    Stack stk;
+    push_all(stk, "hello");
+    EXPECT_EQ(stk.top(), 'o');
+    EXPECT_FALSE(stk.isEmpty());
+}
+
+TEST(StackTests, PopAllEmptiesStack) {
+    Stack stk;
+    push_all(stk, "abc");
+    pop_all(stk);
+    EXPECT_TRUE(stk.isEmpty());
+}
+
+TEST(StackTests, PopAllOnEmptyStack) {
+    Stack stk;
+    pop_all(stk);
+    EXPECT_TRUE(stk.isEmpty());
+}
+
 TEST(StackTests, SingleElementStack) {
     Stack stk;
     stk.push('x');
@@ -43,4 +63,13 @@ TEST(StackTests, SingleElementStack) {
     EXPECT_EQ(stk.top(), 'x');
     stk.pop();
     EXPECT_TRUE(stk.isEmpty());
+}
+
+TEST(StackTests, FullStackBecomesFull) {
+    Stack stk;
+    for (int i = 0; i < STK_MAX; ++i) {
+        EXPECT_FALSE(stk.isFull());
+        stk.push('a' + (i % 26));
+    }
+    EXPECT_TRUE(stk.isFull());
 }
