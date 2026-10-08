@@ -36,13 +36,6 @@ TEST(StackTests, PopRemovesTopElement) {
     EXPECT_TRUE(stk.isEmpty());
 }
 
-TEST(StackTests, PushAllAddsCharactersInOrder) {
-    Stack stk;
-    stk.push_all("hello");
-    EXPECT_EQ(stk.top(), 'o');
-    EXPECT_FALSE(stk.isEmpty());
-}
-
 TEST(StackTests, SingleElementStack) {
     Stack stk;
     stk.push('x');

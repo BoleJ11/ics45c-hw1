@@ -9,11 +9,11 @@ inline int char_to_index(char c) {
     return c - 'A';
 }
 
-inline char index_to_char(int index) {
+char index_to_char(int index) {
     return static_cast<char>('A' + index);
 }
 
-inline void count(string& line, int counts[]) {
+void count(const string& line, int counts[]) {
     for (int i = 0; i < line.length(); i++) {
         char c = line[i];
         if (c >= 'A' && c <= 'Z') {
@@ -27,7 +27,7 @@ inline void count(string& line, int counts[]) {
     }
 }
 
-inline void print_counts(const int counts[]) {
+void print_counts(const int counts[]) {
     for (int i = 0; i < N_CHARS; ++i) {
         cout << index_to_char(i) << " " << counts[i] << endl;
     }
