@@ -25,3 +25,29 @@ TEST(StackTests, PushThenTopSeesTheCharacter) {
 }
 
 // ADD YOUR TESTS HERE:
+
+TEST(StackTests, PopRemovesTopElement) {
+    Stack stk;
+    stk.push('a');
+    stk.push('b');
+    stk.pop();
+    EXPECT_EQ(stk.top(), 'a');
+    stk.pop();
+    EXPECT_TRUE(stk.isEmpty());
+}
+
+TEST(StackTests, PushAllAddsCharactersInOrder) {
+    Stack stk;
+    stk.push_all("hello");
+    EXPECT_EQ(stk.top(), 'o');
+    EXPECT_FALSE(stk.isEmpty());
+}
+
+TEST(StackTests, SingleElementStack) {
+    Stack stk;
+    stk.push('x');
+    EXPECT_FALSE(stk.isEmpty());
+    EXPECT_EQ(stk.top(), 'x');
+    stk.pop();
+    EXPECT_TRUE(stk.isEmpty());
+}
